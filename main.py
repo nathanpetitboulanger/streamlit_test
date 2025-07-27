@@ -7,7 +7,7 @@ import pgeocode
 
 
 
-df = pd.read_csv(r"C:\Users\natha\Desktop\Data analyse new\carte_agri\data\Base_brevo_juillet_2.csv", sep=';', dtype={'CODE_POSTAL': str})
+df = pd.read_csv("Base_brevo_juillet_2.csv", sep=';', dtype={'CODE_POSTAL': str})
 
 df = df.dropna(subset=['TYPO_CULTURE', 'CODE_POSTAL'])
 
@@ -26,7 +26,7 @@ df['longitude'] = coordonnees.longitude
 #map
 
 
-# fig.show(renderer="browser")
+
 
 
 #affichage streamlit
@@ -43,4 +43,7 @@ fig = px.scatter_map(df, lat='latitude', lon='longitude', color='TYPO_CULTURE',
 st.plotly_chart(fig, use_container_width=True)
 fig.update_traces(marker_opacity=alpha_cursor)
 st.write("Opacité des points : ", alpha_cursor)
+
+fig.show(renderer="browser")
+
 #%%
