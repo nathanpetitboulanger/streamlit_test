@@ -38,12 +38,14 @@ st.set_page_config(layout="wide")
 
 #alpha_cursor 
 alpha_cursor = st.slider("Opacité des points", 0.0, 1.0, 0.5)
-fig = px.scatter_map(df, lat='latitude', lon='longitude', color='TYPO_CULTURE',
-                        hover_name='TYPO_CULTURE', zoom=4, height=600)
+fig = px.scatter_mapbox(
+    df, lat='latitude', lon='longitude', color='TYPO_CULTURE',
+    hover_name='TYPO_CULTURE', zoom=4, height=600,
+    mapbox_style="open-street-map"   # pas besoin de token
+)
 st.plotly_chart(fig, use_container_width=True)
 fig.update_traces(marker_opacity=alpha_cursor)
 st.write("Opacité des points : ", alpha_cursor)
 
-fig.show(renderer="browser")
 
 #%%
