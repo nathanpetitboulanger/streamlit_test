@@ -47,5 +47,17 @@ st.plotly_chart(fig, use_container_width=True)
 fig.update_traces(marker_opacity=alpha_cursor)
 st.write("Opacité des points : ", alpha_cursor)
 
+# 🔽 Légende sous la carte (et non à droite)
+fig.update_layout(
+    legend=dict(
+        orientation="h",      # horizontale
+        x=0, xanchor="left",
+        y=-0.2, yanchor="top" # position en dessous du graphe
+        # title_text="TYPO_CULTURE"  # optionnel
+    ),
+    margin=dict(l=0, r=0, t=10, b=120)  # espace pour la légende
+)
+
+st.plotly_chart(fig, use_container_width=True, config={"responsive": True})
 
 #%%
