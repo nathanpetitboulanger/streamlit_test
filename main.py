@@ -43,7 +43,6 @@ fig = px.scatter_mapbox(
     hover_name='TYPO_CULTURE', zoom=4, height=600,
     mapbox_style="open-street-map"   # pas besoin de token
 )
-st.plotly_chart(fig, use_container_width=True)
 fig.update_traces(marker_opacity=alpha_cursor)
 st.write("Opacité des points : ", alpha_cursor)
 
