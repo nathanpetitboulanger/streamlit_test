@@ -41,9 +41,10 @@ alpha = st.slider("Opacité des points", 0.0, 1.0, 0.5)
 # --- Carte ---
 fig = px.scatter_mapbox(
     df, lat="latitude", lon="longitude", color="TYPO_CULTURE",
-    hover_name="TYPO_CULTURE", zoom=5, height=600, mapbox_style="open-street-map"
-)
+    hover_name="TYPO_CULTURE", zoom=6, height=1500, mapbox_style="open-street-map")
+
 fig.update_traces(marker=dict(opacity=alpha, size=8))
+
 fig.update_layout(
     legend=dict(orientation="h", x=0, xanchor="left", y=-0.2, yanchor="top"),
     margin=dict(l=0, r=0, t=10, b=120)
