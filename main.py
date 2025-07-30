@@ -5,7 +5,7 @@ import streamlit as st
 
 # 1) Toujours en premier
 st.set_page_config(layout="wide")
-st.title("Visualisateur campagne brevo #CoFarming")
+st.title("Carte des cultures agricoles en France")
 
 # --- Chargement du fichier ---
 uploaded = st.file_uploader("Télécharger un fichier CSV", type=["csv"])
@@ -41,7 +41,7 @@ alpha = st.slider("Opacité des points", 0.0, 1.0, 0.5)
 # --- Carte ---
 fig = px.scatter_mapbox(
     df, lat="latitude", lon="longitude", color="TYPO_CULTURE",
-    hover_name="TYPO_CULTURE", zoom=6, height=1500, mapbox_style="carto-positron")
+    hover_data=["TYPO_CULTURE", "EMAIL", "SOCIETE_OU_ORGANISME"], zoom=6, height=1500, mapbox_style="carto-positron")
 
 fig.update_traces(marker=dict(opacity=alpha, size=8))
 
