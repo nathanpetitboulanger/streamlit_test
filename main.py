@@ -5,7 +5,7 @@ import streamlit as st
 
 # 1) Toujours en premier
 st.set_page_config(layout="wide")
-st.title("Carte des cultures agricoles en France")
+st.title("Visualisateur Brevo")
 
 # --- Chargement du fichier ---
 uploaded = st.file_uploader("Télécharger un fichier CSV", type=["csv"])
